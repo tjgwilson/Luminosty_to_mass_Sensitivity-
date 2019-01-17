@@ -1,0 +1,49 @@
+MASS ORBITAL RADIUS SENSITIVITY CONVERTER (MORSC)
+
+VERSION: 2.2
+
+**************GETTING STARTED**************
+
+Script requires following files to run:
+1. File with list of: names of stars(only numerals), age (best, oldest, youngest), distance and magnitude
+2. Files with Contrast/Seperation data from VIP for each star on list of stars in CURRENT DIRECTORY
+3. File with Baraffe data contained in 3 column format: age, mass luminosity
+
+**************SETUP**************
+In script section 'DEFINED VARIABLES' change:
+
+INPUT_NAMES = '<USER PATH>'
+to the path of the file containing the list of star names (file 1.)
+
+change:
+INPUT_BARAFFE_DATA = '<USER PATH>'
+to the path of the file containing the baraffe data (file 3.)
+if file is in current directory just include file name.
+
+separation_column = <integer>
+to the column No. (starting at zero) of the contrast data containing the angular separation
+contrast_column = <integer>
+to the column No. of the contrast data containing the contrast.
+
+SAVEFIG = <USER INPUT> set to 'True' to save plots of mass/orbital separation or ‘False’ to show figures during programming runtime (not recommended apart for debug)
+
+SHOW_SURFACE = <USER INPUT> set to 'True' if a 3d plot of the baraffe data is required. Note, needs mpl_toolkits to be available
+
+
+
+**************RUNNING**************
+
+Open Terminal and navigate to folder containing the script.
+to run type
+
+/User/<file_name>$ /opt/local/bin/python2.7 mass_sensitivity.py
+
+
+**************EXAMPLEs**************
+See folder containing example inputs and outputs
+
+**************TROUBLESHOOTING**************
+File name folder must contain more than one row of stars (if only one star is require
+copy and paste first line and change star name to one not in file so that the program runs)
+
+Interpolation of the mass/magnitude line is set to kind='linear' as more accurate routines such as 'cubic' cause problems with when used on linux machines.
